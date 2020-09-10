@@ -1,0 +1,75 @@
+﻿@page "/Calculadora"
+
+<h1>Calculadora</h1>
+<p>Dados dos numeros se calculara lo siguiente</p>
+
+<table class="table">
+    <tr>
+        <th>Primer Numero</th>
+        <th><input @bind="primerNumero" /></th>
+    </tr>
+
+    <tr>
+        <th>Segundo Numero</th>
+        <th><input @bind="segundoNumero" /></th>
+    </tr>
+
+    <tr>
+        <th>@Cadena</th>
+        <th>@Total</th>
+    </tr>
+</table>
+
+<table class="table">
+    <tr>
+        <th><button class="btn btn-primary" @onclick="Sumar">Sumar</button></th>
+        <th><button class="btn btn-primary" @onclick="Restar">Restar</button></th>
+        <th><button class="btn btn-primary" @onclick="Multiplicar">Multiplicar</button></th>
+        <th><button class="btn btn-primary" @onclick="Dividir">Dividir</button></th>
+        <th><button class="btn btn-primary" @onclick="Resetear">Resetear</button></th>
+    </tr>
+</table>
+
+@code {
+
+    private float primerNumero { get; set; } = 0;
+
+    private float segundoNumero { get; set; } = 0;
+
+    private float Total { get; set; }
+
+    private string Cadena { get; set; }
+
+    private void Sumar()
+    {
+        Cadena = "La Suma es: ";
+        Total = primerNumero + segundoNumero;
+    }
+
+    private void Restar()
+    {
+        Cadena = "La Resta es: ";
+        Total = primerNumero - segundoNumero;
+    }
+
+    private void Multiplicar()
+    {
+        Cadena = "La Multiplicación es: ";
+        Total = primerNumero * segundoNumero;
+    }
+
+    private void Dividir()
+    {
+        Cadena = "La Divición es: ";
+        Total = primerNumero / segundoNumero;
+    }
+
+    private void Resetear()
+    {
+        Cadena = "";
+        Total = 0;
+        primerNumero = 0;
+        segundoNumero = 0;
+    }
+}
+
